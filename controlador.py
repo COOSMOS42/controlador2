@@ -13,7 +13,7 @@ scope = [
 ]
 
 # Carregar as credenciais de acesso do arquivo JSON
-creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=["https://www.googleapis.com/auth/spreadsheets"])
+creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes= scope)
 # Autenticar com o Google Sheets (conectar as credencias)
 client = gspread.authorize(creds)
 
