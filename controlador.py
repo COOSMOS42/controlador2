@@ -4,7 +4,7 @@ from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 from google.oauth2 import service_account
-from gspread_pandas import Spread, Client
+from gspread_pandas import Spread,Client
 from gspread_dataframe import set_with_dataframe
 
 
@@ -17,9 +17,9 @@ scope = [
 # Carregar as credenciais de acesso do arquivo JSON
 creds = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes= scope)
 # Autenticar com o Google Sheets (conectar as credencias)
-client = Client(scope = scope, creds = creds)
+cli = Client(scope=scope, creds=creds)
 spreadsheetname = "controlador"
-spread = Spread(spreadsheetname, client = client)
+spread = Spread(spreadsheetname, client = cli)
 #link com a planilha do google sheets
 sheet = client.open(spreadsheetname).sheet1
 
