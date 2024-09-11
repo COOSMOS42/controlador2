@@ -16,9 +16,9 @@ scope = [
 # Carregar as credenciais de acesso do arquivo JSON
 creds = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes= scope)
 # Autenticar com o Google Sheets (conectar as credencias)
-cli = Client(scope=scope, creds=creds)
+client = Client(scope=scope, creds=creds)
 spreadsheetname = "controlador"
-spread = Spread(spreadsheetname, client = cli)
+spread = Spread(spreadsheetname, client = client)
 #link com a planilha do google sheets
 sheet = client.open(spreadsheetname).sheet1
 
