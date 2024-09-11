@@ -2,12 +2,9 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import gspread
-import pygsheets
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from gspread_dataframe import set_with_dataframe
-import time
-import io
-from io import BytesIO
+
 
 # Definir escopos para Google Sheets e Google Drive
 scope = [
@@ -16,7 +13,8 @@ scope = [
 ]
 
 # Carregar as credenciais de acesso do arquivo JSON
-creds = ServiceAccountCredentials.from_json_keyfile_name("cred.json", scope)
+creds = Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"], scope)
 
 # Autenticar com o Google Sheets (conectar as credencias)
 client = gspread.authorize(creds)
@@ -25,7 +23,7 @@ client = gspread.authorize(creds)
 sheet = client.open("controlador").sheet1
 
 val = sheet.get_all_values()
-#<<< fr >>> é a variavel da planilha do google sheets
+# fr é a variavel da planilha do google sheets
 fr = pd.DataFrame(val)
 #separa a primeira linha da planilha google sheets
 cab = fr.iloc[0]
@@ -101,7 +99,7 @@ with col2:
                             ['data', 'destinatario', 'documento'])
         dat = st.text_input('Escreva o valor correspondente')
 
-        # <<< fr >>> é a varaivel que contem a planilha do google sheets
+        # fr é a varaivel que contem a planilha do google sheets
         if st.form_submit_button('Procurar'):
 
             if crit == 'data':
