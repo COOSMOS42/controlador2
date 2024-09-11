@@ -4,9 +4,8 @@ from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 from google.oauth2 import service_account
-from gspread_pandas import Spread,Client
+from gspread_pandas import Spread, Client
 from gspread_dataframe import set_with_dataframe
-
 
 # Definir escopos para Google Sheets e Google Drive
 scope = [
