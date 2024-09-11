@@ -14,13 +14,13 @@ scope = [
 ]
 
 # Carregar as credenciais de acesso do arquivo JSON
-creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes= scope)
+creds = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes= scope)
 # Autenticar com o Google Sheets (conectar as credencias)
 client = Client(scope = scope, creds = creds)
 spreadsheetname = "controlador"
 spread = Spread(spreadsheetname, client = client)
 #link com a planilha do google sheets
-sheet = client.open("controlador").sheet1
+sheet = client.open(spreadsheetname).sheet1
 
 val = sheet.get_all_values()
 # fr é a variavel da planilha do google sheets
