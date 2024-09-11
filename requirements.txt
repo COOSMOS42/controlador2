@@ -1,6 +1,6 @@
-streamlit==1.38.0
-pandas==2.2.2
+streamlit
+pandas
 gspread
-google-oauth2-tool==0.0.3
+google-oauth2-tool
 gspread-pandas
-gspread-dataframe==4.0.0
+gspread-dataframe
