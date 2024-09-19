@@ -59,6 +59,27 @@ def adicionar_entrega(Data, Destinatario, Documento):
 st.header('Carregar entregas')
 col1, col2, col3 = st.columns([2, 2, 2])
 
+with st.sidebar:
+    st.subheader('Como Preencher os dados')
+    st.write('1º: Escolha a data de envio.')
+    st.write('2º: Defina um detinatário.')
+    st.write('IMPORTANTE: Seguir a tabela abaixo para o preenchimento do destinatátio')
+    tab = [['DESTINATÁRIO', 'COMO PREENCHER'],
+        ['Envio para a prefeitura', 'Prefeitura'],['Reenvio para a prefeitura', 'REE Prefeitura'],
+           ['Envio para a certare', 'Certare'], ['Envio para a SS', 'SS']]
+    tabdf = pd.DataFrame(tab)
+    tab1 = tabdf.iloc[0]
+    tabdf = tabdf[1:]
+    tabdf.columns = tab1
+    st.write(tabdf)
+    st.write('3º: Defina um documento.')
+    st.write('-Coloque primeiro o número da parcela em romanos por exemplo:')
+    st.write('-Parecela cinco: V')
+    st.write('-Em segundo coloque o nome do documento:')
+    st.write('-Virgílio Távora I')
+    st.write('-Texto final: V Virgílio Távora I')
+
+
 with col1:
     # formulário para preenchimento dos dados que serão inputados na lista cache
     with st.form('Preencha os dados', clear_on_submit=True, border=True):
