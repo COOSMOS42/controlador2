@@ -111,6 +111,8 @@ with col2:
 
             st.dataframe(df, use_container_width=True)
 
+
+with col3:
     st.subheader('Salvar entregas')
 
     #cria um datafreame para que os dados contidos na lista jsoninput sejam alocadas para a planilha d google sheets
@@ -122,8 +124,6 @@ with col2:
                            row=len(sheet.col_values(1)) + 1,
                            include_column_header=False)
         st.success('Dados enviados com sucesso!')
-
-with col3:
     with st.form('me', clear_on_submit=True, border=True):
         st.subheader('Mostrar entregas')
         if st.form_submit_button('Mostrar'):
