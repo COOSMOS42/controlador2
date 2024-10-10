@@ -40,11 +40,12 @@ if 'jsoninput' not in st.session_state:
 
 
 #adiciona um entrega a lista acima
-def adicionar_entrega(Data, Destinatario, Documento):
+def adicionar_entrega(Data, Destinatario, Documento, Observações):
     entrega = {
         'data': Data,
         'destinatario': Destinatario,
         'documento': Documento
+        'observações' : Observações
     }
 
     st.session_state.jsoninput = pd.concat(
@@ -96,6 +97,9 @@ with col1:
         st.subheader('Documento')
         documento = st.text_input('Qual documento foi enviado?')
 
+        st.subheader('Observação')
+        obs = st.text_input('Alguma observação?')
+
         st.subheader('Adicionar entrega')
 
         if data == '' and destinatario == '' and documento == '':
@@ -103,7 +107,7 @@ with col1:
 
         if st.form_submit_button('Adicionar'):
             st.session_state.jsoninput = adicionar_entrega(
-                dataformat, destinatario, documento)
+                dataformat, destinatario, documento, obs)
 with col2:
     #formulário para remoção de linhas da planilha do google sheets
     with st.form('rmv', clear_on_submit=True, border=True):
