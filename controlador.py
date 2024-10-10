@@ -44,7 +44,7 @@ def adicionar_entrega(Data, Destinatario, Documento, Observações):
     entrega = {
         'data': Data,
         'destinatario': Destinatario,
-        'documento': Documento
+        'documento': Documento,
         'observações' : Observações
     }
 
