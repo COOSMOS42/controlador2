@@ -35,6 +35,9 @@ fr.columns = cab
 st.set_page_config(page_title='Sistema de Cadastramento de Entregas',
                    layout='wide')
 
+with open("styles.css") as f:
+    st.markdown(f"<style>{f.read()}<style>", unsafe_allow_html=True)
+    
 #impedir que a lista que está sendo criada reset(manter os dados)
 if 'jsoninput' not in st.session_state:
     st.session_state.jsoninput = None
