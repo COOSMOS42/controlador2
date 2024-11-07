@@ -86,8 +86,12 @@ with col1:
 
         st.subheader('Status')
         status = st.selectbox('Escolha o Status', ('Entrega SS', 'Envio à prefeitura', 'Recebimento Revisão',
-                                                         'Assinado pela SS', 'Reenvio à Prefeitura', 'Outro') )
-
+                                                         'Assinado pela SS', 'Reenvio à Prefeitura','Concluido', 'Outro') )
+        if status == 'Outro:
+            status2 = st.text_input('Qual o status?')
+        else:
+            status2 = status
+        
         st.subheader('Documento')
         documento = st.text_input('Qual documento foi enviado?')
 
