@@ -59,7 +59,7 @@ def adicionar_entrega(Data, Status, Documento, Observações):
 
 # Carregando as entregas ao iniciar a aplicação
 st.header('Carregar entregas')
-col1, col2, col3 = st.columns([2, 2, 2])
+col1, col2 = st.columns([2, 2)
 
 with st.sidebar:
     st.subheader('Como Preencher os dados')
@@ -76,7 +76,6 @@ with st.sidebar:
 
 with col1:
     # formulário para preenchimento dos dados que serão inputados na lista cache
-    with st.form('Preencha os dados', clear_on_submit=True, border=True):
         st.subheader('Data')
         data = st.date_input('Data de envio',
                              datetime.now().date(),
@@ -103,7 +102,7 @@ with col1:
         if data == '' and destinatario == '' and documento == '':
             st.warning('Preencha todos os dados!')
 
-        if st.form_submit_button('Adicionar'):
+        if st.button('Adicionar'):
             st.session_state.jsoninput = adicionar_entrega(
                 dataformat, status2, documento, obs)
 with col2:
@@ -134,8 +133,6 @@ with col2:
 
             st.dataframe(df, use_container_width=True)
 
-
-with col3:
     st.subheader('Salvar entregas')
 
     #cria um datafreame para que os dados contidos na lista jsoninput sejam alocadas para a planilha d google sheets
