@@ -40,10 +40,11 @@ if 'jsoninput' not in st.session_state:
 
 
 #adiciona um entrega a lista acima
-def adicionar_entrega(Data, Destinatario, Documento, Observações):
+# dia 07/11 foi alterado de Destinatário para Status pois não faz sentido manter como destinario se com status eu tenho mais informações
+def adicionar_entrega(Data, Status, Documento, Observações):
     entrega = {
         'data': Data,
-        'destinatario': Destinatario,
+        'status': Status,
         'documento': Documento,
         'observações' : Observações
     }
