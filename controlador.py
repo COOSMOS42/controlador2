@@ -59,7 +59,7 @@ def adicionar_entrega(Data, Status, Documento, Observações):
 
 # Carregando as entregas ao iniciar a aplicação
 st.header('Carregar entregas')
-col1, col2 = st.columns([2, 2)
+col1, col2 = st.columns([2, 2])
 
 with st.sidebar:
     st.subheader('Como Preencher os dados')
