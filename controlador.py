@@ -105,7 +105,7 @@ with col1:
 
         if st.form_submit_button('Adicionar'):
             st.session_state.jsoninput = adicionar_entrega(
-                dataformat, status, documento, obs)
+                dataformat, status2, documento, obs)
 with col2:
     #formulário para remoção de linhas da planilha do google sheets
     with st.form('rmv', clear_on_submit=True, border=True):
