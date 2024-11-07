@@ -76,6 +76,7 @@ with st.sidebar:
 
 with col1:
     # formulário para preenchimento dos dados que serão inputados na lista cache
+    with st.form('Preencha os dados', clear_on_submit=True, border=True):
         st.subheader('Data')
         data = st.date_input('Data de envio',
                              datetime.now().date(),
@@ -104,7 +105,7 @@ with col1:
         if data == '' and destinatario == '' and documento == '':
             st.warning('Preencha todos os dados!')
 
-        if st.button('Adicionar'):
+        if st.form_submit_button('Adicionar'):
             st.session_state.jsoninput = adicionar_entrega(
                 dataformat, status2, documento, obs)
 with col2:
