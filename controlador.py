@@ -95,10 +95,6 @@ with col1:
         a = str(data)
         dataformat = f'{a[-2:]}/{a[5:7]}/{a[:4]}'
 
-        st.subheader('Status')
-        status = st.selectbox('Escolha o Status', ('Entrega SS', 'Envio à prefeitura', 'Recebimento Revisão',
-                                                         'Assinado pela SS', 'Reenvio à Prefeitura','Concluido', 'Outro') )
-
         st.subheader('Documento')
         documento = st.text_input('Qual documento foi enviado?')
 
