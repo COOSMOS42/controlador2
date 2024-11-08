@@ -75,6 +75,17 @@ with st.sidebar:
 
 
 with col1:
+    
+    st.subheader('Status')
+        status = st.selectbox('Escolha o Status', ('Entrega SS', 'Envio à prefeitura', 'Recebimento Revisão',
+                                                         'Assinado pela SS', 'Reenvio à Prefeitura','Concluido', 'Outro') )
+
+        status2 = None
+        if status == 'Outro':
+            status2 = st.text_input('Qual o status?')
+        else:
+            status2 = status
+    
     # formulário para preenchimento dos dados que serão inputados na lista cache
     with st.form('Preencha os dados', clear_on_submit=True, border=True):
         st.subheader('Data')
@@ -88,12 +99,6 @@ with col1:
         status = st.selectbox('Escolha o Status', ('Entrega SS', 'Envio à prefeitura', 'Recebimento Revisão',
                                                          'Assinado pela SS', 'Reenvio à Prefeitura','Concluido', 'Outro') )
 
-        status2 = None
-        if status == 'Outro':
-            status2 = st.text_input('Qual o status?')
-        else:
-            status2 = status
-        
         st.subheader('Documento')
         documento = st.text_input('Qual documento foi enviado?')
 
