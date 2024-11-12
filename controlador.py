@@ -46,7 +46,7 @@ def adicionar_entrega(Data, Status, Documento, Observações, link):
         'data': Data,
         'status': Status,
         'documento': Documento,
-        'observações' : Observações
+        'observações' : Observações,
         'link': link
     }
 
