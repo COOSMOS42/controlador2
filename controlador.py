@@ -41,12 +41,13 @@ if 'jsoninput' not in st.session_state:
 
 #adiciona um entrega a lista acima
 # dia 07/11 foi alterado de Destinatário para Status pois não faz sentido manter como destinario se com status eu tenho mais informações
-def adicionar_entrega(Data, Status, Documento, Observações):
+def adicionar_entrega(Data, Status, Documento, Observações, link):
     entrega = {
         'data': Data,
         'status': Status,
         'documento': Documento,
         'observações' : Observações
+        'link': link
     }
 
     st.session_state.jsoninput = pd.concat(
@@ -96,19 +97,22 @@ with col1:
         dataformat = f'{a[-2:]}/{a[5:7]}/{a[:4]}'
 
         st.subheader('Documento')
-        documento = st.text_input('Qual documento foi enviado?')
+        documento = st.text_input('Qual o documento referido?')
 
         st.subheader('Observação')
         obs = st.text_input('Alguma observação?')
 
-        st.subheader('Adicionar entrega')
+        st.subheader('Link do Documento')
+        lnk = st.text_input('Adicione aqui o link do documento')
+
+        st.subheader('Adicionar Status')
 
         if data == '' and destinatario == '' and documento == '':
             st.warning('Preencha todos os dados!')
 
         if st.form_submit_button('Adicionar'):
             st.session_state.jsoninput = adicionar_entrega(
-                dataformat, status2, documento, obs)
+                dataformat, status2, documento, obs, lnk)
 with col2:
     #formulário para remoção de linhas da planilha do google sheets
     with st.form('rmv', clear_on_submit=True, border=True):
