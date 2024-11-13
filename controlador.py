@@ -97,7 +97,8 @@ with col1:
         dataformat = f'{a[-2:]}/{a[5:7]}/{a[:4]}'
 
         st.subheader('Documento')
-        parcela = st.selectbox('Qual a parcela?', ('I', 'II, 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'))
+        parcela = st.selectbox('Entrega SS', 'Envio à prefeitura', 'Recebimento Revisão',
+                                                     'Assinado pela SS', 'Reenvio à Prefeitura','Concluído', 'Encaminhado para Ajustes', 'Outro') )
         documento = st.text_input('Qual o documento referido?')
         pardoc = parcela + documento
 
