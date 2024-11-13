@@ -98,9 +98,10 @@ with col1:
 
         st.subheader('Documento')
         parcela = st.selectbox('Escolha o Status', ('I', 'II', 'III',
-                                                     'IV', 'V','VI', 'VII', 'VIII') )
+                                                     'IV', 'V','VI', 'VII', 'VIII', 'IX', 'X', 'XI',
+                                                     'XII') )
         documento = st.text_input('Qual o documento referido?')
-        pardoc = parcela + documento
+        pardoc = parcela + " " + documento
 
         st.subheader('Observação')
         obs = st.text_input('Alguma observação?')
