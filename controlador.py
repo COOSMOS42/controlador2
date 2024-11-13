@@ -97,10 +97,10 @@ with col1:
         dataformat = f'{a[-2:]}/{a[5:7]}/{a[:4]}'
 
         st.subheader('Documento')
-        parcela = st.selectbox('Escolha o Status', ('I', 'II', 'III',
+        parcela = st.selectbox('Escolha a Parcela', ('I', 'II', 'III',
                                                      'IV', 'V','VI', 'VII', 'VIII', 'IX', 'X', 'XI',
                                                      'XII') )
-        documento = st.text_input('Qual o documento referido?')
+        documento = st.selectbox('Qual o documento referido?', ('Virgílio Távora I', 'Virgílio Távora II', 'Virgílio Távora III', 'Demócriot Dummar I', 'Demócriot Dummar II', 'Demócriot Dummar III', 'Blanchard Girão', 'Bonaparte Viana') )
         pardoc = parcela + " " + documento
 
         st.subheader('Observação')
