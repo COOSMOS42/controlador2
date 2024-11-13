@@ -97,7 +97,9 @@ with col1:
         dataformat = f'{a[-2:]}/{a[5:7]}/{a[:4]}'
 
         st.subheader('Documento')
+        parcela = st.slectbox('Qual a parcela?', ('I','II,'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII')
         documento = st.text_input('Qual o documento referido?')
+        pardoc = parcela + documento
 
         st.subheader('Observação')
         obs = st.text_input('Alguma observação?')
@@ -112,7 +114,7 @@ with col1:
 
         if st.form_submit_button('Adicionar'):
             st.session_state.jsoninput = adicionar_entrega(
-                dataformat, status2, documento, obs, lnk)
+                dataformat, status2, pardoc, obs, lnk)
 with col2:
     #formulário para remoção de linhas da planilha do google sheets
     with st.form('rmv', clear_on_submit=True, border=True):
